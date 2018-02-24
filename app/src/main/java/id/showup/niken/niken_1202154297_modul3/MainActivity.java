@@ -3,7 +3,6 @@ package id.showup.niken.niken_1202154297_modul3;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
@@ -14,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private ArrayList<String> Menu;
+    private ArrayList<String> menu;
     private ArrayList<String> Desc;
     private ArrayList<Integer> Gambar;
 
@@ -40,12 +39,12 @@ public class MainActivity extends AppCompatActivity {
         //Set the Layout Manager
         recyclerView.setLayoutManager(new GridLayoutManager(this, gridColumnCount));
 
-        Title = new ArrayList<>();
+        menu = new ArrayList<>();
         Desc = new ArrayList<>();
         Gambar = new ArrayList<>();
 
         //Menggunakan Layout Manager, Dan Membuat List Secara Vertical
-        adapter = new RecyclerViewAdapter(Title, Desc, Gambar);
+        adapter = new RecyclerAdapter(Menu, Desc, Gambar);
         //Memasang Adapter pada RecyclerView
         recyclerView.setAdapter(adapter);
         DaftarItem();
@@ -67,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //Swap the items and notify the adapter
                 Collections.swap(Desc, from, to);
-                Collections.swap(Title, from, to);
+                Collections.swap(menu, from, to);
                 Collections.swap(Gambar, from, to);
                 adapter.notifyItemMoved(from, to);
                 return true;
@@ -75,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                Title.remove(viewHolder.getAdapterPosition());
+                Menu.remove(viewHolder.getAdapterPosition());
                 Desc.remove(viewHolder.getAdapterPosition());
                 Gambar.remove(viewHolder.getAdapterPosition());
                 //Notify the adapter
@@ -86,9 +85,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void DaftarItem() {
-        for (int w = 0; w < title.length; w++) {
+        for (int w = 0; w < Menu.length; w++) {
             Gambar.add(gambar[w]);
-            Title.add(title[w]);
+            menu.add(Menu[w]);
             Desc.add(desc[w]);
         }
     }

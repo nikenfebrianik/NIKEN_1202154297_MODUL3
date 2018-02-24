@@ -1,7 +1,6 @@
 package id.showup.niken.niken_1202154297_modul3;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,8 +8,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class detailActivity extends AppCompatActivity {
-    private static int counts = 0;
+/**
+ * Created by nikenfebriani on 25/02/18.
+ */
+
+public class MenuDetailActivity {
+    private int counts = 1;
     private Button plus, minus;
     private TextView value;
     private ImageView battery;
@@ -18,7 +21,7 @@ public class detailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_detail);
+        setContentView(R.layout.activity_detail);
 
         Intent intent = getIntent();
 
@@ -40,8 +43,9 @@ public class detailActivity extends AppCompatActivity {
         value = findViewById(R.id.txt);
         battery = findViewById(R.id.battery);
 
-        battery.setImageResource(R.drawable.img_battery);
-        value.setText(Integer.toString(counts + 1) + "L");
+        battery.setImageResource(R.drawable.ic_battery_20_black_24dp);
+        value.setText(Integer.toString(counts) + "L");
+
     }
 
     public void plus(View view) {

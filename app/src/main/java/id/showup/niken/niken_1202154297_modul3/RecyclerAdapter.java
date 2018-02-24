@@ -1,11 +1,6 @@
 package id.showup.niken.niken_1202154297_modul3;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,44 +9,42 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
+
 /**
  * Created by nikenfebriani on 25/02/18.
  */
 
-//Class Adapter ini Digunakan Untuk Mengatur Bagaimana Data akan Ditampilkan
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
-    //digunakan untuk menerima dan menyimpan list item
-    private ArrayList<String> arrayListTitle, arrayListDesc;
-    private ArrayList<Integer> arrayListGambar;
+//digunakan untuk menerima dan menyimpan list item
+private ArrayList<String> arrayListTitle, arrayListDesc;
+private ArrayList<Integer> arrayListGambar;
 
-    //Membuat Konstruktor pada Class RecyclerViewAdapter
-    RecyclerAdapter(ArrayList<String> arrayListTitle, ArrayList<String> arrayListDesc, ArrayList<Integer> arrayListGambar){
+        //Membuat Konstruktor pada Class RecyclerAdapter
+        RecyclerAdapter(ArrayList<String> arrayListTitle, ArrayList<String> arrayListDesc, ArrayList<Integer> arrayListGambar){
         this.arrayListTitle = arrayListTitle;
         this.arrayListDesc = arrayListDesc;
         this.arrayListGambar = arrayListGambar;
-    }
-
-    //ViewHolder Digunakan Untuk Menyimpan Referensi Dari View-View
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView Title, Desc;
-        private ImageView Gambar;
-        private LinearLayout itemList;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            //Menginisialisasi View-View untuk kita gunakan pada RecyclerView
-            Title = itemView.findViewById(R.id.title);
-            Desc = itemView.findViewById(R.id.desc);
-            Gambar = itemView.findViewById(R.id.gambar);
-            itemList = itemView.findViewById(R.id.list_item);
-
         }
 
+//ViewHolder Digunakan Untuk Menyimpan Referensi Dari View-View
+public class ViewHolder extends RecyclerView.ViewHolder {
+    private TextView Title, Desc;
+    private ImageView Gambar;
+    private LinearLayout itemList;
+
+    public ViewHolder(View itemView) {
+        super(itemView);
+        //Menginisialisasi View-View untuk kita gunakan pada RecyclerView
+        Title = itemView.findViewById(R.id.title);
+        Desc = itemView.findViewById(R.id.desc);
+        Gambar = itemView.findViewById(R.id.gambar);
+        itemList = itemView.findViewById(R.id.list_item);
+
     }
+
+}
 
     @Override
     public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -74,7 +67,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.itemList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), detailActivity.class);
+                Intent intent = new Intent(v.getContext(), MenuDetailActivity.class);
                 String descs = "    In a vault deep inside Abbey Road Studios in London — protected by an unmarked, triple-locked, police-alarmed door — are something like 400 hours of unreleased Beatles recordings, starting from June 2, 1962 and ending with the very last tracks recorded for the <i>Let It Be album. The best of the best were released by Apple Records in the form of the 3-volume Anthology series.\n" +
                         "        For more information, see the Beatles Time Capsule at www.rockument.com.\n" +
                         "Love Me Do — An early version of the song, played a bit slower and with more of a blues feeling, and a cool bossa-nova beat in middle. Paul had to sing while John played harmonica — a first for the group. Pete Best played drums on this version.\n" +
@@ -168,3 +161,4 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         return arrayListTitle.size();
     }
 }
+
