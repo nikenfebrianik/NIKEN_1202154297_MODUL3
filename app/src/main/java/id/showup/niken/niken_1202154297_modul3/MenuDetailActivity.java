@@ -31,8 +31,8 @@ public class MenuDetailActivity extends AppCompatActivity {
         String descs = intent.getStringExtra("descs");
         int gambar = intent.getIntExtra("gambar", 0);
 
-        TextView textTitle = (TextView)findViewById(R.id.title);
-        TextView textDesc = findViewById(R.id.desc);
+        TextView textTitle = findViewById(R.id.tNama);
+        TextView textDesc = findViewById(R.id.tDesc);
         ImageView imageGambar = findViewById(R.id.imageView);
 
         textTitle.setText(title);
