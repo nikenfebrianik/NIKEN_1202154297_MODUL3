@@ -1,8 +1,10 @@
 package id.showup.niken.niken_1202154297_modul3;
 
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
@@ -48,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
         //Memasang Adapter pada RecyclerView
         recyclerView.setAdapter(adapter);
         DaftarItem();
+
+        // adaptif layout
+        if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        } else {
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        }
 
         // If there is more than one column, disable swipe to dismiss
         int swipeDirs;
