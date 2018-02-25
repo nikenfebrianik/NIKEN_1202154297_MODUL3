@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         Gambar = new ArrayList<>();
 
         //Menggunakan Layout Manager, Dan Membuat List Secara Vertical
-        adapter = new RecyclerAdapter(Menu, Desc, Gambar);
+        adapter = new RecyclerAdapter(menu, Desc, Gambar);
         //Memasang Adapter pada RecyclerView
         recyclerView.setAdapter(adapter);
         DaftarItem();
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                Menu.remove(viewHolder.getAdapterPosition());
+                menu.remove(viewHolder.getAdapterPosition());
                 Desc.remove(viewHolder.getAdapterPosition());
                 Gambar.remove(viewHolder.getAdapterPosition());
                 //Notify the adapter

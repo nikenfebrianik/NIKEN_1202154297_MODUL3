@@ -2,6 +2,7 @@ package id.showup.niken.niken_1202154297_modul3;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -12,7 +13,7 @@ import android.widget.Toast;
  * Created by nikenfebriani on 25/02/18.
  */
 
-public class MenuDetailActivity {
+public class MenuDetailActivity extends AppCompatActivity {
     private int counts = 1;
     private Button plus, minus;
     private TextView value;
@@ -21,7 +22,7 @@ public class MenuDetailActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_menu_detail);
 
         Intent intent = getIntent();
 
@@ -30,16 +31,16 @@ public class MenuDetailActivity {
         String descs = intent.getStringExtra("descs");
         int gambar = intent.getIntExtra("gambar", 0);
 
-        TextView textTitle = findViewById(R.id.title);
+        TextView textTitle = (TextView)findViewById(R.id.title);
         TextView textDesc = findViewById(R.id.desc);
-        ImageView imageGambar = findViewById(R.id.imageview);
+        ImageView imageGambar = findViewById(R.id.imageView);
 
         textTitle.setText(title);
         textDesc.setText(descs);
         imageGambar.setImageResource(gambar);
 
-        plus = findViewById(R.id.plus);
-        minus = findViewById(R.id.minus);
+        plus = findViewById(R.id.BtnPlus);
+        minus = findViewById(R.id.BtnMinus);
         value = findViewById(R.id.txt);
         battery = findViewById(R.id.battery);
 

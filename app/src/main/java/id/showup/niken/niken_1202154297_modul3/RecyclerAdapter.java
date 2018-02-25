@@ -49,7 +49,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     @Override
     public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //Membuat View untuk Menyiapkan dan Memasang Layout yang Akan digunakan pada RecyclerView
-        View V = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_product, parent,false);
+        View V = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_menu, parent,false);
         ViewHolder VH = new ViewHolder(V);
         return VH;
     }
